@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
     const data = await listTodo();
     res.json(data);
   } catch (err) {
-    res.json({ message: "Todo not found", err });
+    res.status(404).json({ message: "Todo not found", err });
   }
 });
 
@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
     const data = await createTodo(req.body);
     res.json({ message: "Todo created", data });
   } catch (err) {
-    res.json({ message: "Todo not created", err });
+    res.status(400).json({ message: "Todo not created", err });
   }
 });
 
@@ -47,7 +47,7 @@ router.put("/:id", async (req, res) => {
     const data = await updateTodo(req.params.id, req.body);
     res.json({ message: "Todo updated", data });
   } catch (err) {
-    res.json({ message: "Todo not updated", err });
+    res.status(400).json({ message: "Todo not updated", err });
   }
 });
 
@@ -61,6 +61,6 @@ router.delete("/:id", async (req, res) => {
     const data = await deleteTodo(req.params.id);
     res.json({ message: "Todo deleted", data });
   } catch (err) {
-    res.json({ message: "Todo not deleted", err });
+    res.status(400).json({ message: "Todo not deleted", err });
   }
 });

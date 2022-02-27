@@ -23,8 +23,8 @@ app.get("/", (req, res) => res.send("Server is running"));
 app.use("/api/todo", router);
 
 // Listening ports
-const PORT = 8080;
+const PORT = 5000;
 
-app.listen(PORT, "127.0.0.1", () => {
-  console.log(`Server is running on http://127.0.0.1:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on localhost:${PORT}`);
 });
